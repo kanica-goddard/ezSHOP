@@ -1,0 +1,54 @@
+form {
+    width: 360px;
+    margin: 200px auto 0;
+    border: 2px solid #E5E5E5;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+form h3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fields {
+    padding: 20px;
+}
+
+.fields input+input {
+    margin-top: 10px;
+}
+
+/* Full-width inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ffdf2b;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+form input[type="submit"] {
+    background-color: #ffdf2b;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+form input[type="submit"]:hover {
+    background: black;
+    color: white;
+}
+
+form .links {
+    padding: 0 20px 20px;
+    text-align: right;
+}

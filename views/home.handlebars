@@ -1,0 +1,50 @@
+<!-- Banner -->
+<div class="banner">
+    <img class="banner-img" src="/img/blackfriday10.png" alt="">
+</div>
+<!-- End Banner -->
+
+<!-- Product Categories -->
+<div class="categories">
+    <div id="cat-1" class="category">
+        <h1>Cellphones & Acessories</h1>
+        <a href="#"><img src="/img/catone.jpg" alt=""></a>
+        <a href="#" class="label-see-more">See more</a>
+    </div>
+
+    <div id="cat-2" class="category">
+        <h1>Luxury Chocolates</h1>
+        <a href="#"><img src="/img/cattwo.jpg" alt=""></a>
+        <a href="#" class="label-see-more">See more</a>
+    </div>
+
+    <div id="cat-3" class="category">
+        <h1>Nutrition</h1>
+        <a href="#"><img src="/img/catthree.jpg" alt=""></a>
+        <a href="#" class="label-see-more">See more</a>
+    </div>
+
+    <div id="cat-4" class="category">
+        <h1>Tools</h1>
+        <a href="#"><img src="/img/catfour.jpg" alt=""></a>
+        <a href="#" class="label-see-more">See more</a>
+    </div>
+</div>
+
+<section class="products best-sellers">
+    <h1 class="best-sellers-title">Best Sellers</h1>
+    <div class="products-grid">
+        {{#each bestSellers}}
+        <div class="product">
+            <img src="/img/{{this.imgSrc}}" alt="Product image">
+            <div class="title-wrapper">
+                <h3 class="title">{{this.title}}</h3>
+                {{#if this.isBestSeller}}
+                <div class="best-seller">Best Seller!</div>
+                {{/if}}
+            </div>
+            <p class="price">{{this.price}}</p>
+        </div>
+        {{/each}}
+    </div>
+</section>
