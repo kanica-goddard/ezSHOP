@@ -60,6 +60,14 @@ nav li a:hover {
   width: 100%;
 }
 
+/* Message */
+.message {
+  text-align: center;
+  font-size: 22px;
+  color: crimson;
+  margin-top: 20px;
+}
+
 /* Footer */
 footer {
   position: fixed;
@@ -150,9 +158,10 @@ section.products h2 {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 260px));
+  grid-template-columns: repeat(4, minmax(200px, 260px));
   justify-content: center;
   grid-gap: 30px;
+  margin-top: 30px;
 }
 
 section.products .product {
@@ -186,7 +195,8 @@ section.products .product .best-seller {
 section.products img {
   display: block;
   margin: 0 auto 20px;
-  height: 120px;
+  max-width: 100%;
+  max-height: 80px;
 }
 
 section.products .product .price {
@@ -251,4 +261,49 @@ section.products.best-sellers {
 
 .sub-categories>ul>ul li+li {
   margin-top: 10px;
+}
+
+/* RESPONSIVE */
+
+/* Laptop */
+@media only screen and (max-width: 1200px) {
+  .categories {
+    grid-template-columns: repeat(2, minmax(200px, 260px));
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(110px, 260px));
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  nav ul li {
+    padding: 0;
+  }
+
+  .categories {
+    grid-template-columns: repeat(1, minmax(200px, 260px));
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(1, minmax(110px, 260px));
+  }
+
+  .sub-categories {
+    width: 140px;
+  }
+
+  .sub-categories>ul>li {
+    font-size: 12px;
+  }
+
+  .sub-categories>ul>ul {
+    padding-left: 0;
+  }
+
+  section.products {
+    margin-left: 140px;
+    padding-bottom: 80px;
+  }
 }

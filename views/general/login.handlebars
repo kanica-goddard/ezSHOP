@@ -1,13 +1,18 @@
 <section class="form-style">
-    <form action="action_page.php" method="post">
+    <form action="/login" method="post">
         <h3>Log In</h3>
         <div class="fields">
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="text" placeholder="Enter Username" name="uname">
+            <input type="password" placeholder="Enter Password" name="psw">
             <input type="submit" value="Login"></button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
+            <div class="errors">
+                {{#each errors}}
+                <div class="error">{{this}}</div>
+                {{/each}}
+            </div>
         </div>
         <div class="links">
             <a href="#">Forgot password?</a>

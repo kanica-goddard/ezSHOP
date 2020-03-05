@@ -1,10 +1,15 @@
-<form class="sign-up-form" action="/signup" method="POST">
+<form class="sign-up-form" action="/sign-up" method="POST">
     <h3>Sign Up</h3>
     <div class="fields">
-        <input type="text" placeholder="Full Name" class="txtb" required>
-        <input type="email" placeholder="Email" class="txtb" required>
-        <input type="password" placeholder="Password" class="txtb" required>
+        <input type="text" placeholder="Full Name" class="txtb" name="name" value="{{this.name}}">
+        <input type="email" placeholder="Email" class="txtb" name="email" value="{{this.email}}">
+        <input type="password" placeholder="Password" class="txtb" name="password" value="{{this.password}}">
         <input type="submit" value="Create Account" class="signup-btn">
+        <div class="errors">
+            {{#each errors}}
+            <div class="error">{{this}}</div>
+            {{/each}}
+        </div>
     </div>
     <div class="links">
         <a href="/login">Already have an account?</a>
