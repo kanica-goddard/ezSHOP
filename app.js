@@ -1,7 +1,12 @@
 const express = require("express"); //this imports the express package that was installed within your application
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+
+//load the environment variable file
+require("dotenv").config({ path: "./config/keys.env" });
+
 const app = express();
+
 //Handlebars Middleware - This tells express to set up our template engine has handlebars
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");

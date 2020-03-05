@@ -87,11 +87,31 @@ router.post("/sign-up", (req, res) => {
 
   //No Errors
   if (errorMessages.length == 0) {
-    res.render("general/home", {
-      title: "ezSHOP",
-      bestSellers: productModel.getBestSellingProducts(),
-      message: "Registration succesful!"
-    });
+    //sending email
+    const sgMail = require("@sendgrid/mail");
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    const msg = {
+      to: `${email}`,
+      from: `kanika-k@hotmail.com`,
+      subject: "Registration Completed",
+      html: `Vistor's Full Name ${name} <br>
+     Vistor's Email Address ${email} <br>
+    `
+    };
+
+    //Asynchornous operation (who don't know how long this will take to execute)
+    sgMail
+      .send(msg)
+      .then(() => {
+        res.render("general/home", {
+          title: "ezSHOP",
+          bestSellers: productModel.getBestSellingProducts(),
+          message: `Registration succesful. Hello ${name}, Welcome to ezSHOP!`
+        });
+      })
+      .catch(err => {
+        console.log(`Error ${err}`);
+      });
   }
   //Errors
   else {
