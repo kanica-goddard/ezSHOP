@@ -25,7 +25,7 @@ app.use("/", generalController);
 // app.use("/product", productController);
 
 //Sets up server - Creates an Express Web Server that listens to HTTP Reuqest on port 3000
-const PORT = 3090;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Web Server Started`);
 });
