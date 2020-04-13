@@ -69,14 +69,7 @@ router.post("/sign-up", (req, res) => {
   const user = new userModel(newUser);
   user.save()
   .then(()=>{
-    // res.redirect("general/home", {
-    //   title: "ezSHOP",
-    //   bestSellers: productModel.getBestSellingProducts(),
-    //   message: `Registration succesful. Hello ${firstName}, Welcome to ezSHOP!`,
-    // });
-
-    res.render("./general/home");
-
+    res.redirect("./controllers/general/home");
   })
   .catch(err=>console.log(`Error while inserting into the data ${err}`));
 
