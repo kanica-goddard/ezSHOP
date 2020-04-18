@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
         //Matching email could not be found
         if (user == null) {
           errorMessages.push("Sorry, your email or password is wrong!");
-          res.render("login", {
+          res.render("users/login", {
             title: "Login",
             errors: errorMessages,
             retain: form,
@@ -69,8 +69,7 @@ router.post("/login", (req, res) => {
               //Password matches
               if (isMatched == true) {
                 req.session.userInfo = user;
-                //res.redirect("/user/dashboard");
-                 res.redirect("/user/profile");
+                res.redirect("/user/profile");
               }
               //Error - passwords do not match
               else {
@@ -90,7 +89,7 @@ router.post("/login", (req, res) => {
 });
 
 // Handle dashboard only if authenticated
-router.get("/profile",isAuthenticated,dashBoardLoader);
+router.get("/profile", isAuthenticated, dashBoardLoader);
 
 //destroy session
 router.get("/logout", (req, res) => {
