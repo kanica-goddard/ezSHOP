@@ -2,6 +2,8 @@ const express = require("express"); //this imports the express package that was 
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const session = require('express-session');
+const fileUpload = require('express-fileupload');
 
 //load the environment variable file
 require("dotenv").config({ path: "./config/keys.env" });
@@ -17,6 +19,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
 
+app.use(fileUpload());
+
+app.use(session({
+  secret: `${process.env.SECRET_KEY}`,
+  resave: false,
+  saveUninitialized: true
+}))
+
+app.use((req,res,next)=>{
+  //a global variable that can be handled by any handlebar file
+  res.locals.user= req.session.userInfo;
+  next();
+})
+
 //load controllers
 const generalController = require("./controllers/general");
 const productController = require("./controllers/product");
@@ -29,9 +45,10 @@ app.use("/user", userController);
 
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
-    console.log("Connected to MongoDB Databse.")
+    console.log("Connected to MongoDB Database")
 })
-.catch(err=>console.log(`Error occured when connecting to database ${err}`))
+.catch(err=>console.log(`Error occured when connecting to database ${err}`));
+mongoose.set('useCreateIndex', true);
 
 //Sets up server - Creates an Express Web Server that listens to HTTP Reuqest on port 3000
 app.listen(process.env.PORT, () => {
