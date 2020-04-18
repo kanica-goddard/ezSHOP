@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-//load product model
-const productModel = require("../models/product");
+const productModel = require("../models/product");//load product model
 
 //Route for the Home Page
 router.get("/", (req, res) => {
@@ -12,7 +10,7 @@ router.get("/", (req, res) => {
       const mappedBestSellers = bestSellers.map((product) => {
         return {
           id: product._id,
-          productImage: product.productImage,
+          productName: product.productName,
           description: product.description,
           quantity: product.quantity,
           productImage: product.productImage,
