@@ -1,0 +1,58 @@
+<section id="clerkDashboard" style="margin-top: 60px; padding-bottom:100px;">
+    <h1>Welcome {{user.firstName}}!</h1>
+    <p>Your email: {{user.email}}</p>
+    <p>Your role: {{user.type}}</p>
+
+    <form method="POST" action="/product/add" enctype="multipart/form-data">
+
+        <label>Name</label>
+        <input type="text" name="productName" id="productName"> <br><br>
+
+        <label>Image</label>
+        <input type="file" name="productImage" id="productImage"> <br><br>
+
+        <label>Price</label>
+        <input type="text" name="price" id="price"> <br><br>
+
+        <label>Description</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label>Category</label>
+        <input type="text" name="category" id="category"> <br><br>
+
+        <label>Quantity</label>
+        <input type="text" name="quantity" id="quantity"> <br><br>
+
+        <label>Bestseller</label>
+        <select name="isBestSeller">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <input type="submit" value="Add Product">
+    </form>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Best Seller</th>
+            <th></th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td><img src="/uploads/{{this.productImage}}" width="20px" alt="Product image"></td>
+            <td>{{this.productName}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.isBestSeller}}</td>
+            <td><button>Edit</button></td>
+        </tr>
+        {{/each}}
+    </table>
