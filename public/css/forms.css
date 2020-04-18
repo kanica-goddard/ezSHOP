@@ -81,7 +81,5 @@ form.search-form select {
   border: 1px solid #ffdf2b;
   border-right-width: 0;
   background: #ffffff;
-  border-radius: 0;
-  -webkit-appearance: none;
   padding: 0 10px;
 }
