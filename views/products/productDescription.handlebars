@@ -10,9 +10,13 @@
         <div class="secondary-info">
             <p class="description">{{description}}</p>
             <p class="quantity">Only {{quantity}} left. Buy now!</p>
+            <form method="POST" action="/cart/add/" enctype="multipart/form-data">
+                <input type="number" name="quantity" id="quantity" value="1" min="1" max="100">
+                <input type="text" name="id" id="id" value="{{_id}}" style="display: none;">
+                {{#if user}}
+                <input type="submit" class="btn-add-to-cart" value="ADD TO CART">
+                {{/if}}
+            </form>
         </div>
-        {{#if user}}
-        <button class="btn-add-to-cart">ADD TO CART</button>
-        {{/if}}
     </div>
 </section>

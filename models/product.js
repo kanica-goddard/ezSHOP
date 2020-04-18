@@ -45,6 +45,6 @@ const productSchema = new Schema({
 });
 
 //Implementing this model allows us to perform CRUD operations
-const productModel = mongoose.model("Products", productSchema);
+const productModel = mongoose.model("Product", productSchema);
 
 module.exports = productModel;
