@@ -79,7 +79,7 @@ form of an object(object literal)
               }
             )
             .then(() => {
-              res.redirect("/products/product-list");
+              res.redirect("/product/product-list");
             });
         });
     })
@@ -92,6 +92,53 @@ form of an object(object literal)
 
 router.get("/edit", isAuthenticated, (req, res) => {
   res.redirect("/products/editProductForm");
+});
+
+router.get("/edit/:id", isAuthenticated, (req, res) => {
+  productModel
+    .findById(req.params.id)
+    .then((product) => {
+      const {
+        _id,
+        productName,
+        description,
+        price,
+        category,
+        quantity,
+        productImage,
+        isBestSeller,
+      } = product;
+
+      res.render("products/editProductForm", {
+        _id,
+        productName,
+        description,
+        price,
+        category,
+        quantity,
+        productImage,
+        isBestSeller,
+      });
+    })
+    .catch((err) => console.log(`Error occured: ${err}`));
+});
+
+router.put("/update/:id", (req, res) => {
+  const product = {
+    productName: req.body.productName,
+    description: req.body.description,
+    price: req.body.price,
+    category: req.body.category,
+    quantity: req.body.quantity,
+    isBestSeller: req.body.isBestSeller
+  };
+
+  productModel
+    .updateOne({ _id: req.params.id }, product)
+    .then(() => {
+      res.redirect("/product/product-list");
+    })
+    .catch((err) => console.log(`Error occurred: ${err}`));
 });
 
 module.exports = router;
