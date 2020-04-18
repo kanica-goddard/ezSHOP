@@ -42,6 +42,7 @@
             <th>Quantity</th>
             <th>Best Seller</th>
             <th></th>
+            <th></th>
         </tr>
         {{#each data}}
         <tr>
@@ -53,6 +54,7 @@
             <td>{{this.quantity}}</td>
             <td>{{this.isBestSeller}}</td>
             <td><a href="/product/edit/{{this.id}}">Edit</a></td>
+            <td><a href="/product/delete/{{this.id}}?method=DELETE">Delete</a></td>
         </tr>
         {{/each}}
     </table>

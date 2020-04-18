@@ -130,11 +130,20 @@ router.put("/update/:id", (req, res) => {
     price: req.body.price,
     category: req.body.category,
     quantity: req.body.quantity,
-    isBestSeller: req.body.isBestSeller
+    isBestSeller: req.body.isBestSeller,
   };
 
   productModel
     .updateOne({ _id: req.params.id }, product)
+    .then(() => {
+      res.redirect("/product/product-list");
+    })
+    .catch((err) => console.log(`Error occurred: ${err}`));
+});
+
+router.delete("/delete/:id", (req, res) => {
+  productModel
+    .deleteOne({ _id: req.params.id })
     .then(() => {
       res.redirect("/product/product-list");
     })
