@@ -7,6 +7,7 @@ const cartSchema = new Schema({
     type: Schema.Types.ObjectId, //foreign key - referencing objectID of a product in product schema
     ref: "Product",
     required: true,
+    unique: true,
   },
   productName: {
     type: String,
