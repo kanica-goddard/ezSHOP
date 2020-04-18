@@ -14,18 +14,19 @@
 <section class="products">
     <h2>Electronics</h2>
     <div class="products-grid">
-        {{#each products}}
+        {{#each data}}
         <div class="product">
-            <img src="/img/{{this.imgSrc}}" alt="Product image">
+            <img src="/uploads/{{this.productImage}}" alt="Product image">
             <div class="title-wrapper">
                 <a href="#">
-                    <h3 class="title">{{this.title}}</h3>
+                    <h3 class="title">{{this.productName}}</h3>
                 </a>
                 {{#if this.isBestSeller}}
                 <div class="best-seller">Best Seller!</div>
                 {{/if}}
             </div>
-            <p class="price">{{this.price}}</p>
+            <p class="price"><span style="vertical-align: super;">CDN$</span> {{this.price}}</p>
+            <p class="description">{{this.description}}</p>
         </div>
         {{/each}}
     </div>
