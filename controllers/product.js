@@ -6,13 +6,23 @@ const isAuthenticated = require("../middleware/authentication");
 
 //Route for Products
 router.get("/product-list", (req, res) => {
+  let filter = {};
+
+  if (req.query.category && req.query.category != "All") {
+    filter.category = req.query.category;
+  }
+
+  if (req.query.search) {
+    filter.productName = new RegExp(req.query.search, "i");
+  }
+
   productModel
-    .find()
+    .find(filter)
     .then((products) => {
       const mappedProducts = products.map((product) => {
         return {
           id: product._id,
-          productImage: product.productImage,
+          productName: product.productName,
           description: product.description,
           quantity: product.quantity,
           productImage: product.productImage,
@@ -148,6 +158,21 @@ router.delete("/delete/:id", (req, res) => {
       res.redirect("/product/product-list");
     })
     .catch((err) => console.log(`Error occurred: ${err}`));
+});
+
+/******************************   SEARCH PRODUCTS   ****************************************/
+router.post("/search", (req, res) => {
+  let filter = "";
+
+  if (req.body.category) {
+    filter += "?category=" + req.body.category;
+  }
+
+  if (req.body.search.length > 0) {
+    filter += "&search=" + req.body.search;
+  }
+
+  res.redirect(`/product/product-list${filter}`);
 });
 
 module.exports = router;

@@ -1,68 +1,87 @@
-form {
-    width: 360px;
-    margin: 200px auto 0;
-    border: 2px solid #E5E5E5;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+form.small {
+  width: 360px;
+  margin: 120px auto 60px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
 form h3 {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .fields {
-    padding: 20px;
+  padding: 20px;
 }
 
-.fields input+input {
-    margin-top: 10px;
+.fields input + input {
+  margin-top: 10px;
 }
 
 /* Full-width inputs */
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ffdf2b;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ffdf2b;
+  box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 form input[type="submit"] {
-    background-color: #ffdf2b;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  background-color: #ffdf2b;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 /* Add a hover effect for buttons */
 form input[type="submit"]:hover {
-    background: black;
-    color: white;
+  background: black;
+  color: white;
 }
 
 form .links {
-    padding: 0 20px 20px;
-    text-align: right;
+  padding: 0 20px 20px;
+  text-align: right;
 }
 
 /* Errors */
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 10px;
-    text-align: center;
-    color: red;
-    background: mistyrose;
-    border-radius: 4px;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px;
+  text-align: center;
+  color: red;
+  background: mistyrose;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+form.search-form {
+  display: flex;
+  align-items: center;
+}
+
+form.search-form input {
+  margin: 0;
+}
+
+form.search-form select {
+  height: 38px;
+  border: 1px solid #ffdf2b;
+  border-right-width: 0;
+  background: #ffffff;
+  border-radius: 0;
+  -webkit-appearance: none;
+  padding: 0 10px;
 }
