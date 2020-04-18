@@ -42,6 +42,35 @@ router.get("/product-list", (req, res) => {
     );
 });
 
+router.get("/view/:id", (req, res) => {
+  productModel
+    .findById(req.params.id)
+    .then((product) => {
+      const {
+        _id,
+        productName,
+        description,
+        price,
+        category,
+        quantity,
+        productImage,
+        isBestSeller,
+      } = product;
+
+      res.render("products/productDescription", {
+        _id,
+        productName,
+        description,
+        price,
+        category,
+        quantity,
+        productImage,
+        isBestSeller,
+      });
+    })
+    .catch((err) => console.log(`Error occured: ${err}`));
+});
+
 /******************************   ADD PRODUCTS   ****************************************/
 
 //Route to direct inventory to Add products
