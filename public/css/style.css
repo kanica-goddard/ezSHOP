@@ -148,7 +148,8 @@ h1 {
 }
 
 /* PRODUCTS */
-section.products {
+section.products,
+section.cart {
   margin-top: 60px;
   padding: 30px;
 }

@@ -1,0 +1,20 @@
+<section class="cart">
+    <table>
+        <tr>
+            <th></th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td><img src="/uploads/{{this.productImage}}" width="20px" alt="Product image"></td>
+            <td>{{this.productName}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.quantity}}</td>
+            <td><a href="/cart/delete/{{this.productID}}?method=DELETE">Delete</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</section>
