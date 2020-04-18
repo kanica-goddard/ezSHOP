@@ -52,11 +52,13 @@ app.use((req,res,next)=>{
 const generalController = require("./controllers/general");
 const productController = require("./controllers/product");
 const userController = require("./controllers/user");
+const cartController = require("./controllers/cart");
 
 //map each controller to the app express object
 app.use("/", generalController);
 app.use("/product", productController);
 app.use("/user", userController);
+app.use("/cart", cartController);
 
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
