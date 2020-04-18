@@ -41,7 +41,7 @@
     <div class="products-grid">
         {{#each bestSellers}}
         <div class="product">
-            <img src="/img/{{this.imgSrc}}" alt="Product image">
+            <img src="/uploads/{{this.productImage}}" alt="Product image">
             <div class="title-wrapper">
                 <h3 class="title">{{this.title}}</h3>
                 {{#if this.isBestSeller}}
@@ -49,6 +49,7 @@
                 {{/if}}
             </div>
             <p class="price">{{this.price}}</p>
+            <p class="description">{{this.description}}</p>
         </div>
         {{/each}}
     </div>
