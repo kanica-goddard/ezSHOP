@@ -8,12 +8,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-
   lastName: {
     type: String,
     required: true,
   },
-
   email: {
     type: String,
     required: true,
@@ -23,10 +21,13 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-
   dateCreated: {
     type: Date,
     default: Date.now(),
+  },
+  type: {
+    type: String,
+    default: "user",
   },
 });
 
@@ -49,7 +50,7 @@ userSchema.pre("save", function (next) {
     .catch((err) => console.log(`Error occured when salting ${err}`));
 });
 
-const userModel = mongoose.model("User", userSchema);
+const userModel = mongoose.model("Users", userSchema);
 module.exports = userModel;
 
 /*
