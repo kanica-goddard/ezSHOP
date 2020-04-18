@@ -90,7 +90,7 @@ form of an object(object literal)
   //Object
   const newProduct = {
     productName: req.body.productName,
-    productImage: JSON.stringify(req.files.productImage),
+    productImage: JSON.stringify(req.files.productImage), // turn file object into string
     price: req.body.price,
     description: req.body.description,
     category: req.body.category,

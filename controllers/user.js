@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/user");
-const productModel = require("../models/product");
+const userModel = require("../models/user"); //import user model
+const productModel = require("../models/product"); //import product model
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/authentication");
 const dashBoardLoader = require("../middleware/authorization");
