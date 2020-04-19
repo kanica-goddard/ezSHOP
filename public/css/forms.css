@@ -22,7 +22,8 @@ form h3 {
 /* Full-width inputs */
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -67,6 +68,34 @@ form .links {
   margin-top: 10px;
 }
 
+/* Add Product */
+form.add-product {
+  max-width: 320px;
+  margin-left: 40px;
+}
+
+form.add-product h2 {
+  margin-bottom: 20px;
+}
+
+form.add-product textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+}
+
+form.add-product select {
+  display: block;
+  height: 38px;
+  border: 1px solid #ffdf2b;
+  background: #ffffff;
+  padding: 0 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+/* Search */
 form.search-form {
   display: flex;
   align-items: center;

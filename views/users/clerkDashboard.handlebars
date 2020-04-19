@@ -1,9 +1,12 @@
 <section id="clerkDashboard" style="margin-top: 60px; padding-bottom:100px;">
-    <h1>Welcome {{user.firstName}}!</h1>
-    <p>Your email: {{user.email}}</p>
-    <p>Your role: {{user.type}}</p>
+    <div class="user-details">
+        <h1>Welcome {{user.firstName}}!</h1>
+        <p>Your email: {{user.email}}</p>
+        <p>Your role: {{user.type}}</p>
+    </div>
 
-    <form method="POST" action="/product/add" enctype="multipart/form-data">
+    <form class="add-product" method="POST" action="/product/add" enctype="multipart/form-data">
+        <h2>Add Product</h2>
 
         <label>Name</label>
         <input type="text" name="productName" id="productName"> <br><br>
@@ -29,32 +32,35 @@
             <option value="false">No</option>
         </select>
 
-        <input type="submit" value="Add Product">
+        <input type="submit" value="ADD PRODUCT">
     </form>
 
-    <table>
-        <tr>
-            <th></th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Quantity</th>
-            <th>Best Seller</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {{#each data}}
-        <tr>
-            <td><img src="/uploads/{{this.productImage}}" width="20px" alt="Product image"></td>
-            <td>{{this.productName}}</td>
-            <td>{{this.price}}</td>
-            <td>{{this.description}}</td>
-            <td>{{this.category}}</td>
-            <td>{{this.quantity}}</td>
-            <td>{{this.isBestSeller}}</td>
-            <td><a href="/product/edit/{{this.id}}">Edit</a></td>
-            <td><a href="/product/delete/{{this.id}}?method=DELETE">Delete</a></td>
-        </tr>
-        {{/each}}
-    </table>
+    <div class="clerk-products">
+        <h2>Products</h2>
+        <table class="products">
+            <tr>
+                <th width="50px"></th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Best Seller</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {{#each data}}
+            <tr>
+                <td><img src="/uploads/{{this.productImage}}" width="40px" alt="Product image"></td>
+                <td>{{this.productName}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.isBestSeller}}</td>
+                <td><a href="/product/edit/{{this.id}}">EDIT</a></td>
+                <td><a href="/product/delete/{{this.id}}?method=DELETE">DELETE</a></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
