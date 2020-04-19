@@ -1,30 +1,30 @@
-<h2>Update Task</h2>
-<form method="POST" action="/product/update/{{_id}}?method=PUT">
+<section class="edit-product">
+    <h2>Edit Product</h2>
+    <form class="small edit-product" method="POST" action="/product/update/{{_id}}?method=PUT">
+        <label>Name</label>
+        <input type="text" name="productName" id="productName" value="{{productName}}"> <br><br>
 
-    <label>Name</label>
-    <input type="text" name="productName" id="productName" value="{{productName}}"> <br><br>
+        <label>Image</label>
+        <input type="file" name="productImage" id="productImage" value="{{productImage}}"> <br><br>
 
-    <label>Image</label>
-    <input type="file" name="productImage" id="productImage" value="{{productImage}}"> <br><br>
+        <label>Price</label>
+        <input type="text" name="price" id="price" value="{{price}}"> <br><br>
 
-    <label>Price</label>
-    <input type="text" name="price" id="price" value="{{price}}"> <br><br>
+        <label>Description</label>
+        <input type="text" id="description" name="description" value="{{description}}"></input><br><br>
 
-    <label>Description</label>
-    <input type="text" id="description" name="description" value="{{description}}"></input><br><br>
+        <label>Category</label>
+        <input type="text" name="category" id="category" value="{{category}}"> <br><br>
 
-    <label>Category</label>
-    <input type="text" name="category" id="category" value="{{category}}"> <br><br>
+        <label>Quantity</label>
+        <input type="text" name="quantity" id="quantity" value="{{quantity}}"> <br><br>
 
-    <label>Quantity</label>
-    <input type="text" name="quantity" id="quantity" value="{{quantity}}"> <br><br>
+        <label>Bestseller</label>
+        <select name="isBestSeller" value="{{isBestSeller}}">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
 
-    <label>Bestseller</label>
-    <select name="isBestSeller" value="{{isBestSeller}}">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select>
-
-    <input type="submit" value="Update Product">
-
-</form>
+        <input type="submit" value="SAVE CHANGES">
+    </form>
+</section>

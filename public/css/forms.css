@@ -84,7 +84,8 @@ form.add-product textarea {
   max-height: 200px;
 }
 
-form.add-product select {
+form.add-product select,
+form.edit-product select {
   display: block;
   height: 38px;
   border: 1px solid #ffdf2b;

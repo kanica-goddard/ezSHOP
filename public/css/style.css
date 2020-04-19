@@ -320,6 +320,21 @@ table.products a:hover {
   color: white;
 }
 
+section.edit-product {
+  margin-top: 60px;
+}
+
+section.edit-product h2 {
+  text-align: center;
+  padding-top: 40px;
+}
+
+section.edit-product form {
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding: 20px;
+}
+
 /* RESPONSIVE */
 
 /* Laptop */
