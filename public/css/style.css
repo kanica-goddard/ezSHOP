@@ -219,6 +219,14 @@ section.products a:hover {
   text-decoration: underline;
 }
 
+section.cart table td {
+  height: 60px;
+}
+
+section.cart form input[type="submit"] {
+  margin-top: 30px;
+}
+
 /* Best Sellers Home Page*/
 section.products.best-sellers {
   margin-left: 0;
