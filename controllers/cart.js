@@ -32,6 +32,46 @@ router.get("/", isAuthenticated, (req, res) => {
   });
 });
 
+router.post("/checkout", isAuthenticated, (req, res) => {
+  cartModel.find().then((cartItems) => {
+    const user = req.session.userInfo;
+    let total = 0;
+    let emailBody = `Hello ${user.firstName} ${user.lastName}, your order was successful!<br><br>`;
+
+    cartItems.forEach((cartItem) => {
+      total += cartItem.price;
+      emailBody += `${cartItem.productName} x ${cartItem.quantity} @ CA$${
+        cartItem.price
+      } = CA$${cartItem.quantity * cartItem.price}<br>`;
+    });
+
+    emailBody += `<br>Grand total: CA$${total}<br><br>`;
+
+    //sending email
+    const sgMail = require("@sendgrid/mail");
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    const msg = {
+      to: `${user.email}`,
+      from: `kanika-k@hotmail.com`,
+      subject: "Checkout Successful!",
+      html: emailBody,
+    };
+    //Asynchornous operation
+    sgMail
+      .send(msg)
+      .then(() => {
+        cartModel.deleteMany({}, (err) => {
+          console.log("Error occurred: " + err);
+        });
+        res.redirect("/product/product-list");
+      })
+      .catch((err) => {
+        console.log(`Error ${err}`);
+      });
+    console.log(`Succesfully sent order email`);
+  });
+});
+
 router.delete("/delete/:id", (req, res) => {
   console.log("Deleting");
   console.log(req.params);
