@@ -173,7 +173,7 @@ router.post("/sign-up", (req, res) => {
         sgMail
           .send(msg)
           .then(() => {
-            res.redirect("/users/userDashboard");
+            res.redirect("/user/profile");
           })
           .catch((err) => {
             console.log(`Error ${err}`);
