@@ -152,6 +152,7 @@ section.products,
 section.cart {
   margin-top: 60px;
   padding: 30px;
+  margin-bottom: 100px;
 }
 
 section.products h2 {

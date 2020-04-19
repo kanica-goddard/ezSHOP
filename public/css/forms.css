@@ -113,3 +113,7 @@ form.search-form select {
   background: #ffffff;
   padding: 0 10px;
 }
+
+form.search-form input[type="submit"] {
+  max-width: 120px;
+}
