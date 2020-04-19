@@ -10,7 +10,7 @@
         <div class="secondary-info">
             <p class="description">{{description}}</p>
             <p class="quantity">Only {{quantity}} left. Buy now!</p>
-            <form method="POST" action="/cart/add/" enctype="multipart/form-data">
+            <form class="view-product" method="POST" action="/cart/add/" enctype="multipart/form-data">
                 <input type="number" name="quantity" id="quantity" value="1" min="1" max="100">
                 <input type="text" name="id" id="id" value="{{_id}}" style="display: none;">
                 {{#if user}}
