@@ -43,14 +43,16 @@
         <div class="product">
             <img src="/uploads/{{this.productImage}}" alt="Product image">
             <div class="title-wrapper">
-                <h3 class="title">{{this.title}}</h3>
-                {{#if this.isBestSeller}}
-                <div class="best-seller">Best Seller!</div>
-                {{/if}}
+                <a href="/product/view/{{id}}">
+                    <h3 class="title">{{this.productName}}</h3>
+                </a>
             </div>
             <p class="name">{{this.productName}}</p>
             <p class="price"><span style="vertical-align: super;">CDN$</span> {{this.price}}</p>
             <p class="description">{{this.description}}</p>
+            {{#if this.isBestSeller}}
+            <div class="best-seller">Best Seller!</div>
+            {{/if}}
         </div>
         {{/each}}
     </div>

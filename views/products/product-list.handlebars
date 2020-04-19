@@ -22,12 +22,12 @@
                 <a href="/product/view/{{id}}">
                     <h3 class="title">{{this.productName}}</h3>
                 </a>
-                {{#if this.isBestSeller}}
-                <div class="best-seller">Best Seller!</div>
-                {{/if}}
             </div>
             <p class="price"><span style="vertical-align: super;">CDN$</span> {{this.price}}</p>
             <p class="description">{{this.description}}</p>
+            {{#if this.isBestSeller}}
+            <div class="best-seller">Best Seller!</div>
+            {{/if}}
         </div>
         {{/each}}
     </div>

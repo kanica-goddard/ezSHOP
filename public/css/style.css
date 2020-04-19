@@ -186,11 +186,9 @@ section.products .product .title {
 }
 
 section.products .product .best-seller {
+  display: block;
   color: red;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  text-transform: uppercase;
+  margin-top: 20px;
   font-size: 12px;
   font-weight: bold;
 }
