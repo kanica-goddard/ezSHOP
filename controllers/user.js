@@ -151,49 +151,55 @@ router.post("/sign-up", (req, res) => {
     errorMessages.push("Password must only contain letters and numbers");
   }
 
-  //No Errors
-  if (errorMessages.length == 0) {
-    // Create instance of the user model
-    const user = new userModel(newUser);
-    user
-      .save()
-      .then(() => {
-        //sending email
-        const sgMail = require("@sendgrid/mail");
-        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-        const msg = {
-          to: `${email}`,
-          from: `kanika-k@hotmail.com`,
-          subject: "Registration Completed",
-          html: `Hello ${firstName} ${lastName}! Welcome to ezShop.<br>
-                 You have succesfully completed your registration. <br>
-                 Your username is: ${email} <br>`,
-        };
-        //Asynchornous operation
-        sgMail
-          .send(msg)
-          .then(() => {
-            res.redirect("/user/profile");
-          })
-          .catch((err) => {
-            console.log(`Error ${err}`);
-          });
-        console.log(`Succesfully sent registration email`);
-      })
-      .catch((err) =>
-        console.log(`Error while inserting into the data ${err}`)
-      );
-  }
-  //Errors
-  else {
-    res.render("users/sign-up", {
-      title: "ezSHOP | Sign Up",
-      name: firstName,
-      email: email,
-      password: password,
-      errors: errorMessages,
-    });
-  }
+  // Check if email already taken
+  userModel.find({ email: newUser.email }).then((user) => {
+    if (user) {
+      errorMessages.push("Email already taken");
+    }
+    //No Errors
+    if (errorMessages.length == 0) {
+      // Create instance of the user model
+      const user = new userModel(newUser);
+      user
+        .save()
+        .then(() => {
+          //sending email
+          const sgMail = require("@sendgrid/mail");
+          sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+          const msg = {
+            to: `${email}`,
+            from: `kanika-k@hotmail.com`,
+            subject: "Registration Completed",
+            html: `Hello ${firstName} ${lastName}! Welcome to ezShop.<br>
+                   You have succesfully completed your registration. <br>
+                   Your username is: ${email} <br>`,
+          };
+          //Asynchornous operation
+          sgMail
+            .send(msg)
+            .then(() => {
+              res.redirect("/user/profile");
+            })
+            .catch((err) => {
+              console.log(`Error ${err}`);
+            });
+          console.log(`Succesfully sent registration email`);
+        })
+        .catch((err) =>
+          console.log(`Error while inserting into the data ${err}`)
+        );
+    }
+    //Errors
+    else {
+      res.render("users/sign-up", {
+        title: "ezSHOP | Sign Up",
+        name: firstName,
+        email: email,
+        password: password,
+        errors: errorMessages,
+      });
+    }
+  });
 });
 
 module.exports = router;
