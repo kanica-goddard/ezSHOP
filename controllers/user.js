@@ -173,11 +173,7 @@ router.post("/sign-up", (req, res) => {
         sgMail
           .send(msg)
           .then(() => {
-            res.redirect("/user/userDashboard"); //, {
-            // title: "ezSHOP",
-            // bestSellers: productModel.getBestSellingProducts()
-            //message: `Registration succesful. Hello ${firstName}, Welcome to ezSHOP!`,
-            //});
+            res.redirect("/users/userDashboard");
           })
           .catch((err) => {
             console.log(`Error ${err}`);
