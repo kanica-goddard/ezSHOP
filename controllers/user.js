@@ -152,7 +152,8 @@ router.post("/sign-up", (req, res) => {
   }
 
   // Check if email already taken
-  userModel.find({ email: newUser.email }).then((user) => {
+  userModel.findOne({ email: newUser.email }).then((user) => {
+    console.log(user);
     if (user) {
       errorMessages.push("Email already taken");
     }
