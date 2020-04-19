@@ -1,5 +1,8 @@
-<section id="userDashboard" style="margin-top: 60px; padding-bottom:100px;">
-	<h2>Welcome {{user.firstName}}</h2>
-	<p>Your email: {{user.email}}</p>
-	<p>Your role: {{user.type}}</p>
+<section class="user-dashboard">
+	<div class="user-details">
+		<h1>Welcome {{user.firstName}} {{user.lastName}}</h1>
+		<p>Your email: {{user.email}}</p>
+		<p>Your role: {{user.type}}</p>
+	</div>
+	<a href="/product/product-list">Let's go shopping!</a>
 </section>
