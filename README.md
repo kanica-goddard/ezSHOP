@@ -13,7 +13,7 @@ ezSHOP is an e-commerce website. I built this web app for myself to practice cre
 
 
 ## How to Use this Project
-1. Visit https://ezshop-a2.herokuapp.com (be patient while this loads)
+1. Visit https://ezshop-a2.herokuapp.com (*please be patient while this loads*)
 2. Register your account
 3. Log in and add items to cart
 
