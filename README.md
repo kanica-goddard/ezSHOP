@@ -1,3 +1,4 @@
+## ezSHOP is an e-commerce website. I built this for myself to practice creating a dynamic website with serverside web applications using Node.js and Express.
 
 ## Features
 - Home Page
