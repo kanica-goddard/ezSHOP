@@ -2,11 +2,12 @@
 ## Features
 - Home Page
 - Products Page
-- Customer Registration - *must login to add items to your cart
+- Customer Registration
 - Sends Registration Confirmation Emails
 - Login
 - Cart
 
+*Must login to add items to your cart
 
 
 ## How to Use this Project
