@@ -1,10 +1,11 @@
 
 ## Features
-● Home Page
-● Products Page
-● Customer Registration - *must login to add items to your cart
-● Login
-● Cart
+- Home Page
+- Products Page
+- Customer Registration - *must login to add items to your cart
+- Sends Registration Confirmation Emails
+- Login
+- Cart
 
 
 
