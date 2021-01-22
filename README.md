@@ -1,5 +1,5 @@
 ## Background
-ezSHOP is an e-commerce website. I built this for web app for myself to practice creating a dynamic website with serverside web applications using Node.js and Express.
+ezSHOP is an e-commerce website. I built this web app for myself to practice creating a dynamic website with serverside web applications using Node.js and Express.
 
 ## Features
 - Home Page
