@@ -7,7 +7,7 @@
 - Login
 - Cart
 
-*Must login to add items to your cart
+*Must login to add items to your car*
 
 
 ## How to Use this Project
